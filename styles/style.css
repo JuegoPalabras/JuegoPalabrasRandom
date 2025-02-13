@@ -7,8 +7,8 @@
 
 
 body{
-    background: rgb(58,171,180);
-    background: linear-gradient(90deg, rgba(58,171,180,1) 0%, rgba(29,253,205,1) 23%, rgba(69,202,252,1) 100%);
+background: #2ECCC7;
+background: radial-gradient(at center top, #2ECCC7, #407AE6);
 }
 #optionsMenu{
     display: flex;
@@ -16,10 +16,15 @@ body{
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 200px;
-    
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    width: 300px;
+    transform: translate(-1%, 73%); 
 }
-
+#optionsMenuOculto{
+    display:none;
+}
 #optionsMenu-text{
     font-size: 20px;
 }
@@ -33,12 +38,28 @@ body{
 }
 
 #optionsMenuButtons button{
-    background-color: aliceblue;
-    border-radius: 7px;
-    width: 90px;
-    color: black;
+    border-radius: 5px;
+    width: 120px;
     font-size: 15px;
-    height: 30px;
+    height: 50px;
+    text-align: center;
+}
+
+#optionsMenu-opt1{
+    background-color: yellow;
+    color: black;
+}
+
+#optionsMenu-opt2{
+    background-color: rgba(0, 0, 255, 0.568);
+}
+
+#optionsMenu-opt3{
+    background-color: rgba(255, 0, 0, 0.712);
+}
+
+#optionsMenu-opt4{
+    background-color: rgba(0, 128, 0, 0.651);
 }
 
 
@@ -46,8 +67,18 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:10px;
-    display: none;
+    gap:20px;
+   background-color: white;
+   transform: translate(-1%, 45%); 
+   justify-content: center;
+   height: auto;
+   width: 280px;
+   border-radius: 10px;
+   display: none;
+   text-align: center;
+}
+#namehead{
+    display:flex;
 }
 #playersNames div{
     display: flex;
@@ -55,10 +86,16 @@ body{
     gap: 20px;
     align-items: center;
 }
+#Exit{
+
+    
+}
 #playersNames div input{
     max-width: 200px;
     border-radius: 30px;
-    height: 30px;
+    height: 40px;
+   display: none;
+
 }
 #playersNames div button{
     border-radius: 30px;
@@ -66,13 +103,14 @@ body{
     height: 50px;
     background: rgb(97,218,35);
     background: linear-gradient(90deg, rgba(97,218,35,1) 34%, rgba(35,218,111,1) 59%);
+    margin: 10px;
 }
 
  /* CSS RELOJ */
-.clock {
+ .clock {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 183px;
+    height: 181px;
     border: 5px solid white;
     border-radius: 50%;
     display: flex;
@@ -82,10 +120,11 @@ body{
 .hand {
     position: absolute;
     width: 4px;
-    height: 80px;
-    background: green;
+    height: 55px;
+    top: 42px;
+    background-color: yellow;
     transform-origin: bottom;
-    top: 20px;
+    animation: rotate 240s linear infinite;
 }
 .player {
     position: absolute;
@@ -97,3 +136,113 @@ body{
 .right  { right: 5px; top: 50%; transform: translateY(-50%); }
 .bottom { bottom: 5px; left: 50%; transform: translateX(-50%); }
 .left   { left: 5px; top: 50%; transform: translateY(-50%); }
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    position: relative;
+    width: 390px;
+    height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.game{
+    display: none;
+}
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.players {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+}
+.players img {
+    width: 60%;
+    height: 67%;
+    border-radius: 50%;
+    margin-top:16px;
+    margin-left: 14px;
+    display: none;
+}
+.top1 { top: 15%; }
+.right2 { right: 10%; }
+.bottom3 {
+    bottom: 15%;
+}
+.left4 { left: 10%; }
+.letra {
+    position: absolute;
+    top: 5%;
+    font-size: 28px;
+    font-weight: bold;
+    color: #007bff;
+} 
+.words-container {
+    gap: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+}
+.words-box1, .words-box2, .words-box3, .words-box4{
+    width: 45%;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 14px;
+}
+
+.input-container {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 10px;
+}
+
+#word-input {
+width: 80%;
+padding: 10px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 5px;
+text-align: center;
+}
+
+.buttons {
+margin-top: 10px;
+display: flex;
+gap: 10px;
+}
+
+button {
+padding: 10px 15px;
+font-size: 16px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+#accept-btn {
+background-color: #28a745;
+color: white;
+}
+
+#restart-btn {
+background-color: #dc3545;
+color: white;
+}

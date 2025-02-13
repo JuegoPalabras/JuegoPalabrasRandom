@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="optionsMenu">
-        <h1 id="optionsMenu-title">Title</h1>
+        <h1 id="optionsMenu-title">TYPE WORDS</h1>
         <h2 id="optionsMenu-text">Seleccione el numero de jugadores</h2>
             <div id="optionsMenuButtons">
             <button id="optionsMenu-opt1">1 Jugador</button>
@@ -17,8 +17,14 @@
             <button id="optionsMenu-opt4">4 Jugadores</button>
             </div>
     </div>
+    
+        <button id="Exit">⬅</button>
+       
     <div id="playersNames">
-        <h1>Titulo</h1>
+       
+             <h1>TYPE WORDS</h1>
+        
+   
         <div>
     
             <input type="text" placeholder="   Nombre del Jugador 1" id="name1">
@@ -32,22 +38,59 @@
             <input type="text"  placeholder="   Nombre del Jugador 4" id="name4">
 
 
-            <button>Jugar</button>
-
-
+            <button id="btnJugar">Jugar</button>
+            
+            
         </div> 
 
         
     </div>
-
-    <div class="clock">
-        <div class="hand" id="hand"></div>
-        <div class="player top">⬆</div>
-        <div class="player right">➡</div>
-        <div class="player bottom">⬇</div>
-        <div class="player left">⬅</div>
+    <div class="game" id="game">
+    <div class="container">
+        <div class="letra">Letra: A</div>
+        <div class="clock">
+            <div class="hand" id="hand"></div>
+            <div class="player top">⬆</div>
+            <div class="player right">➡</div>
+            <div class="player bottom">⬇</div>
+            <div class="player left">⬅</div>
+        </div>
+        <div class="players top1"><img src="./assets/img/persona-amarillo.png" id="player1"></div>
+        <div class="players right2"><img src="./assets/img/persona-azul.png" id="player2"></div>
+        <div class="players bottom3"><img src="./assets/img/persona-rojo.png" id="player3"></div>
+        <div class="players left4"><img src="./assets/img/persona-verde.png" id="player4"></div>
     </div>
 
+    <div class="input-container">
+        <input type="text" id="word-input" placeholder="Ingresa una palabra">
+        <div class="buttons">
+            <button id="accept-btn">Aceptar</button>
+            <button id="restart-btn">Jugar de nuevo</button>
+        </div>
+    </div>
+
+    <div class="words-container">
+        <div class="words-box1">
+            <h3 id="nmPlayer1">.</h3>
+            <div class="word-list" id="words-player1"></div>
+        </div>
+        <div class="words-box2">
+            <h3 id="nmPlayer2">.</h3>
+            <div class="word-list" id="words-player2"></div>
+        </div>
+        <div class="words-box3">
+            <h3 id="nmPlayer3">.</h3>
+            <div class="word-list" id="words-player3"></div>
+        </div>
+        <div class="words-box4">
+            <h3 id="nmPlayer4">.</h3>
+            <div class="word-list" id="words-player4"></div>
+        </div>
+    </div>
+</div>
     <script src="juego.js"></script>
+    <script src="NombreJugadores.js"></script>
+    <script src="SeleccionJugadores.js"></script>
+
 </body>
 </html> 
