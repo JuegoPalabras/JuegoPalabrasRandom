@@ -1,5 +1,7 @@
 /*Declaracion y llamado de variables por medio de ID */
 
+
+
 const btn1player = document.getElementById('optionsMenu-opt1');
 const btn2player = document.getElementById('optionsMenu-opt2');
 const btn3player = document.getElementById('optionsMenu-opt3');
@@ -18,6 +20,11 @@ const player2 = document.getElementById('player2');
 const player3 = document.getElementById('player3');
 const player4 = document.getElementById('player4');
 const ExitNamePlayers=document.getElementById('Exit')
+const containerplayers=document.getElementById('words-container')
+const containerplayer1=document.getElementById('words-box1')
+const containerplayer2=document.getElementById('words-box2')
+const containerplayer3=document.getElementById('words-box3')
+const containerplayer4=document.getElementById('words-box4')
 let action=''
 
 /* Aqui se declaran las acciones de los botones para que cuando sean presionados llenen la variable action con una cadena de texto en especifico */
@@ -56,6 +63,8 @@ function selectPlayers(){
                input1player.style.display='block';
                divSelectPlayers.style.display='none'
                divNamePlayers.style.display='flex'
+            containerplayer1.style.display='block'
+              
 
            }else if(action=='btn2player'){
                player1.style.display='block';
@@ -64,8 +73,8 @@ function selectPlayers(){
                input2player.style.display='block';
                divSelectPlayers.style.display='none'
             divNamePlayers.style.display='flex'
-               
-
+                 containerplayer1.style.display='block'
+                  containerplayer2.style.display='block'
 
            }else if (action=='btn3player'){
             player1.style.display='block';
@@ -76,9 +85,11 @@ function selectPlayers(){
             input3player.style.display='block';
             divSelectPlayers.style.display='none'
             divNamePlayers.style.display='flex'
-            
+            containerplayer1.style.display='block'
+            containerplayer2.style.display='block'
+            containerplayer3.style.display='block'
 
-       
+
            }else if(action=='btn4player'){
             player1.style.display='block';
             player2.style.display='block';
@@ -90,7 +101,10 @@ function selectPlayers(){
             input4player.style.display='block';
             divSelectPlayers.style.display='none'
             divNamePlayers.style.display='flex'
-
+            containerplayer1.style.display='block'
+            containerplayer2.style.display='block'
+            containerplayer3.style.display='block'
+            containerplayer4.style.display='block'
            }
 }
    
@@ -114,6 +128,8 @@ btnJugar.addEventListener('click', () => {
     if (validateInputs()) {
         divNamePlayers.style.display = 'none';
         containerJuego.style.display = 'block';
+        ExitNamePlayers.style.display='none';
+
     } else {
         alert("Por favor, complete todos los campos visibles.");
     }

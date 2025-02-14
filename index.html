@@ -47,7 +47,9 @@
     </div>
     <div class="game" id="game">
     <div class="container">
-        <div class="letra">Letra: A</div>
+        <div class="letra" id="letra">
+            <h2 class="letter" id="letter"></h2>
+        </div>
         <div class="clock">
             <div class="hand" id="hand"></div>
             <div class="player top">⬆</div>
@@ -70,27 +72,47 @@
     </div>
 
     <div class="words-container">
-        <div class="words-box1">
+        <div class="words-box1" id="words-box1">
             <h3 id="nmPlayer1">.</h3>
-            <div class="word-list" id="words-player1"></div>
+            <div class="word-list" id="words-player1">
+
+            </div>
+            <h3 >Cantidad de palabras: <span id="numberOfWords1"></span></h3>
         </div>
-        <div class="words-box2">
+        <div class="words-box2" id="words-box2">
             <h3 id="nmPlayer2">.</h3>
             <div class="word-list" id="words-player2"></div>
+            <h3 >Cantidad de palabras: <span id="numberOfWords2"></span></h3>
+
+
         </div>
-        <div class="words-box3">
+        <div class="words-box3" id="words-box3">
             <h3 id="nmPlayer3">.</h3>
             <div class="word-list" id="words-player3"></div>
+            <h3 >Cantidad de palabras: <span id="numberOfWords3"></span></h3>
+
+
         </div>
-        <div class="words-box4">
+        <div class="words-box4" id="words-box4">
             <h3 id="nmPlayer4">.</h3>
             <div class="word-list" id="words-player4"></div>
+            <h3 >Cantidad de palabras: <span id="numberOfWords4"></span></h3>
+
+
         </div>
     </div>
 </div>
-    <script src="juego.js"></script>
-    <script src="NombreJugadores.js"></script>
-    <script src="SeleccionJugadores.js"></script>
+
+
+
+
+
+    <script src="SeleccionJugadores.js"   type="module"></script>
+    <script src="Juego.js"type="module" > </script>
+    <script src="NombreJugadores.js" type="module"></script>
+    <script src="letras.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </body>
 </html> 
