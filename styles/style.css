@@ -124,7 +124,8 @@ background: radial-gradient(at center top, #2ECCC7, #407AE6);
     top: 42px;
     background-color: yellow;
     transform-origin: bottom;
-    animation: rotate 40s linear infinite;
+    animation: rotate 360s linear forwards;
+    animation-iteration-count: 1;
 }
 .player {
     position: absolute;

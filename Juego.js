@@ -5,12 +5,14 @@ const btnRestart=document.getElementById('restart-btn')
 // const containerplayer3=document.getElementById('words-box3')
 // const containerplayer4=document.getElementById('words-box4')
 const inputWordsPrincipal=document.getElementById('word-input')
-const numberOfWords1=document.getElementById('numberOfWords1')
-const numberOfWords2=document.getElementById('numberOfWords2')
-const numberOfWords3=document.getElementById('numberOfWords3')
-const numberOfWords4=document.getElementById('numberOfWords4')
+export const numberOfWords1=document.getElementById('numberOfWords1')
+export const numberOfWords2=document.getElementById('numberOfWords2')
+export const numberOfWords3=document.getElementById('numberOfWords3')
+export const numberOfWords4=document.getElementById('numberOfWords4')
+
 import { angle } from "/NombreJugadores.js";
 
+import {btnReload} from "/NombreJugadores.js"
 
 btnAccept.addEventListener('click', ()=>{
     if (inputWordsPrincipal!=null) {
@@ -19,10 +21,11 @@ btnAccept.addEventListener('click', ()=>{
         alert("Ingrese una palabra")
     }
 })
-let numberWords1=0
-let numberWords2=0
-let numberWords3=0
-let numberWords4=0
+// Juego.js
+ let numberWords1 = 0;
+ let numberWords2 = 0;
+ let numberWords3 = 0;
+ let numberWords4 = 0;
 
 
 
@@ -46,3 +49,9 @@ let numberWords4=0
         
     
     }
+    btnReload.addEventListener('click', ()=>{
+    numberWords1 = 0;
+    numberWords2 = 0;
+    numberWords3 = 0;
+    numberWords4 = 0;
+    })
