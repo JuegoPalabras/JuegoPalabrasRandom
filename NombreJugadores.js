@@ -34,7 +34,7 @@ const containerLetter = document.getElementById('letter');
 
 export const btnReload = document.getElementById('restart-btn');
 let action = '';
- let duration = 90000;
+ let duration = 60000;
 btn1player.addEventListener('click', () => {
     action = 'btn1player';
 

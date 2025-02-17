@@ -191,7 +191,7 @@ background: radial-gradient(at center top, #2ECCC7, #407AE6);
     top: 42px;
     background-color: #FFD700;
     transform-origin: bottom;
-    animation: rotate 360s linear forwards;
+    animation: rotate 240s linear forwards;
     animation-iteration-count: 1;
 }
 .player {
@@ -344,7 +344,7 @@ margin-top: 10px;
 
 #word-input {
 position: absolute;
-top: 50%;
+top: 53%;
 width: 65%;
 padding: 10px;
 font-size: 1.2rem;
@@ -371,6 +371,9 @@ cursor: pointer;
 #accept-btn {
     background: linear-gradient(to bottom, #4CAF50, #388E3C);
     color: white;
+    position: absolute;
+    right: 2%;
+    top: 53.1%;
 }
 
 #accept-btn:hover{
