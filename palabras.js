@@ -77281,7 +77281,6 @@ export const palabras = [
     "túrmix",
     "tútano",
     "u",
-    "ubajay",
     "ube",
     "ubetense",
     "ubicación",

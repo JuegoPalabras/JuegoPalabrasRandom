@@ -56,7 +56,7 @@ let repeat=false
 const WordsWritten=[];
 // Evento para validar la palabra ingresada
 btnAccept.addEventListener('click', () => {
-    palabra = inputWordsPrincipal.value.trim();
+    palabra = inputWordsPrincipal.value.trim().toLowerCase();
 
     if (palabra === "") {
         alert("Ingrese una palabra");
