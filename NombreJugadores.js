@@ -1,9 +1,9 @@
 export let angle = 0;
 
 
-import { numberOfWords1, numberOfWords2, numberOfWords3, numberOfWords4 } from "./Juego.js";
-import { numberWords1, numberWords2, numberWords3, numberWords4 } from "./Juego.js";
-import { generarLetraRandom } from "./letras.js";
+import { numberOfWords1, numberOfWords2, numberOfWords3, numberOfWords4 } from "Juego.js";
+import { numberWords1, numberWords2, numberWords3, numberWords4 } from "Juego.js";
+import { generarLetraRandom } from "letras.js";
 // Variables para almacenar los nombres de los jugadores
 let player1Name = '';
 let player2Name = '';
