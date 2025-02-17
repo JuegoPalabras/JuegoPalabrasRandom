@@ -1,6 +1,6 @@
 /*Declaracion y llamado de variables por medio de ID */
 
-import { angle } from "/NombreJugadores.js";
+import { angle } from "NombreJugadores.js";
 
 
 const btn1player = document.getElementById('optionsMenu-opt1');
