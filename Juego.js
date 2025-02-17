@@ -16,10 +16,10 @@ export const numberOfWords1=document.getElementById('numberOfWords1')
 export const numberOfWords2=document.getElementById('numberOfWords2')
 export const numberOfWords3=document.getElementById('numberOfWords3')
 export const numberOfWords4=document.getElementById('numberOfWords4')
-import { action } from "SeleccionJugadores.js"
-import { angle } from "NombreJugadores.js";
-import { generarLetraRandom } from "letras.js";
-import { palabras } from "palabras.js"
+import { action } from "./SeleccionJugadores.js"
+import { angle } from "./NombreJugadores.js";
+import { generarLetraRandom } from "./letras.js";
+import { palabras } from "./palabras.js"
 
 document.addEventListener("DOMContentLoaded", function() {
 inputWordsPrincipal.addEventListener("input", ()=> {
