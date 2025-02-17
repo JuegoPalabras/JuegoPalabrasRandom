@@ -114,7 +114,7 @@ function winnerCondition(numberWords1, numberWords2, numberWords3, numberWords4)
 
 const colors = ['yellow', 'blue', 'red', 'green', 'white'];
 const Finalcolors = ['yellow', 'blue', 'red', 'green', 'white'];
-function startClock() {
+export function startClock() {
     function update() { 
         angle += 90; // Mover 90 grados cada paso
 
@@ -177,45 +177,7 @@ button.addEventListener('click', function () {
     h2Player2.innerHTML = player2Name;
     h2Player3.innerHTML = player3Name;
     h2Player4.innerHTML = player4Name;
-
-    let countdown = 3;
-    let timerInterval;
-
-    Swal.fire({
-        title: "TYPE WORD",
-        html: `
-          <video width="300px" height="300px" autoplay loop muted>
-            <source src="assets/img/cargador.mp4" type="video/mp4">
-            Tu navegador no soporta el video.
-          </video>
-          <br>
-          <p><b>El juego comienza en <span id="countdown">${countdown}</span></b></p>
-        `,
-        timer: 3000,
-        showConfirmButton: false,
-        didOpen: () => {
-          const countdownElement = document.getElementById("countdown");
-          timerInterval = setInterval(() => {
-            countdown--;
-            countdownElement.textContent = countdown;
-      
-            if (countdown <= 0) {
-              clearInterval(timerInterval);
-              Swal.close();
-            }
-          }, 1000);
-        },
-        willClose: () => {
-          clearInterval(timerInterval);
-        }
-      }).then((result) => {
-        if (result.dismiss === Swal.DismissReason.timer) {
-          console.log("El alerta se cerró automáticamente");
-        }
-      });
-
-      
-        startClock();  // Llama a la función startClock después de 3 segundos
+// Llama a la función startClock después de 3 segundos
       
 });
 

@@ -2,6 +2,8 @@
 
 import { angle } from "./NombreJugadores.js";
 
+import { startClock } from "./NombreJugadores.js";
+
 
 const btn1player = document.getElementById('optionsMenu-opt1');
 const btn2player = document.getElementById('optionsMenu-opt2');
@@ -130,6 +132,44 @@ btnJugar.addEventListener('click', () => {
         divNamePlayers.style.display = 'none';
         containerJuego.style.display = 'block';
         ExitNamePlayers.style.display='none';
+
+        let countdown = 3;
+        let timerInterval;
+    
+        Swal.fire({
+            title: "TYPE WORD",
+            html: `
+              <video width="300px" height="300px" autoplay loop muted>
+                <source src="assets/img/cargador.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+              </video>
+              <br>
+              <p><b>El juego comienza en <span id="countdown">${countdown}</span></b></p>
+            `,
+            timer: 3000,
+            showConfirmButton: false,
+            didOpen: () => {
+              const countdownElement = document.getElementById("countdown");
+              timerInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+          
+                if (countdown <= 0) {
+                  clearInterval(timerInterval);
+                  Swal.close();
+                }
+              }, 1000);
+            },
+            willClose: () => {
+              clearInterval(timerInterval);
+            }
+          }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+              console.log("El alerta se cerró automáticamente");
+            }
+          });
+
+          startClock();
 
     } else {
         alert("Por favor, complete todos los campos visibles.");
