@@ -2,7 +2,8 @@ export let angle = 0;
 
 
 import { numberOfWords1, numberOfWords2, numberOfWords3, numberOfWords4 } from "./Juego.js";
-
+import { numberWords1, numberWords2, numberWords3, numberWords4 } from "./Juego.js";
+import { generarLetraRandom } from "./letras.js";
 // Variables para almacenar los nombres de los jugadores
 let player1Name = '';
 let player2Name = '';
@@ -28,8 +29,10 @@ const btn2player = document.getElementById('optionsMenu-opt2');
 const btn3player = document.getElementById('optionsMenu-opt3');
 const btn4player = document.getElementById('optionsMenu-opt4');
 
-export const btnReload = document.getElementById('restart-btn');
 
+const containerLetter = document.getElementById('letter');
+
+export const btnReload = document.getElementById('restart-btn');
 let action = '';
  let duration = 90000;
 btn1player.addEventListener('click', () => {
@@ -51,41 +54,100 @@ btn4player.addEventListener('click', () => {
     action = 'btn4player';
 });
 
+
+
+
+function alertWin(jugador, numberWords){
+    Swal.fire({
+        title:"¡Felicidades! Jugador "+jugador, 
+        text:"Acertaste " + numberWords + " palabras",
+        imageUrl: "assets/img/trofeo.gif",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "ganador"
+    });
+}
+function winnerCondition(numberWords1, numberWords2, numberWords3, numberWords4) {
+    let ganador = null;
+    let maxWords = 0;
+
+    if (action === 'btn1player' && angle === 90) {
+        maxWords = numberWords1;
+        ganador = 1;
+    } else if (action === 'btn2player' && angle === 180) {
+        maxWords = Math.max(numberWords1, numberWords2);
+        if (maxWords === numberWords1) {
+            ganador = 1;
+        } else if (maxWords === numberWords2) {
+            ganador = 2;
+        }
+    } else if (action === 'btn3player' && angle === 270) {
+        maxWords = Math.max(numberWords1, numberWords2, numberWords3);
+        if (maxWords === numberWords1) {
+            ganador = 1;
+        } else if (maxWords === numberWords2) {
+            ganador = 2;
+        } else if (maxWords === numberWords3) {
+            ganador = 3;
+        }
+    } else if (action === 'btn4player' && angle === 360) {
+        maxWords = Math.max(numberWords1, numberWords2, numberWords3, numberWords4);
+        if (maxWords === numberWords1) {
+            ganador = 1;
+        } else if (maxWords === numberWords2) {
+            ganador = 2;
+        } else if (maxWords === numberWords3) {
+            ganador = 3;
+        } else if (maxWords === numberWords4) {
+            ganador = 4;
+        }
+    }
+
+    if (ganador !== null) {
+        alertWin(ganador, maxWords);  // Mostrar la alerta con el ganador
+    }
+}
+
+
+
+
+
+const colors = ['yellow', 'blue', 'red', 'green', 'white'];
+const Finalcolors = ['yellow', 'blue', 'red', 'green', 'white'];
 function startClock() {
-    
-    const clock = document.getElementById("clock"); // Asegúrate de que el reloj tenga este ID
-     // 60 segundo por paso (ajusta según sea necesario)
-
-    // Colores para cada cuadrante
-    const colors = ['yellow', 'blue', 'red', 'green', 'white'];
-
-    function update() {
-        if (action == 'btn4player' && angle >= 210) {
-            clearInterval(clockInterval);
-
-            Swal.fire({
-                title: "¡Felicidades!",
-                text: "Acertaste palabras",
-                imageUrl: "https://unsplash.it/400/200",
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: "ganador"
-            });
-        } else if (action == 'btn1player' && angle == 45) {
-            clearInterval(clockInterval);
-            console.log(angle)
-            hand.style.animationPlayState = "paused";
-            Swal.fire({
-                title: "¡Felicidades!",
-                text: "Acertaste palabras",
-                imageUrl: "https://unsplash.it/400/200",
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: "ganador"
-            });
-        } 
-
+    function update() { 
         angle += 90; // Mover 90 grados cada paso
+
+        // Verificar si se debe detener la aguja
+        if (action === 'btn1player' && angle === 90) {
+            hand.style.animationPlayState = "paused"; // Pausar animación
+            winnerCondition(numberWords1,numberWords2,numberWords3,numberWords4)
+            clearInterval(clockInterval); // Detener el setInterval para que no siga actualizando
+           
+            return; // Salir de la función para evitar que se siga ejecutando
+        }
+        else if (action === 'btn2player' && angle === 180) {
+            hand.style.animationPlayState = "paused"; // Pausar animación
+            winnerCondition(numberWords1,numberWords2,numberWords3,numberWords4)
+            clearInterval(clockInterval); // Detener el setInterval para que no siga actualizando
+            
+            return; // Salir de la función para evitar que se siga ejecutando
+        }
+        else if (action === 'btn3player' && angle === 270) {
+            hand.style.animationPlayState = "paused"; // Pausar animación
+            clearInterval(clockInterval); // Detener el setInterval para que no siga actualizando
+            winnerCondition(numberWords1,numberWords2,numberWords3,numberWords4)
+            
+            return; // Salir de la función para evitar que se siga ejecutando
+        } else if (action === 'btn4player' && angle === 360) {
+            hand.style.animationPlayState = "paused"; // Pausar animación
+            clearInterval(clockInterval); // Detener el setInterval para que no siga actualizando
+            winnerCondition(numberWords1,numberWords2,numberWords3,numberWords4)
+            
+            return; // Salir de la función para evitar que se siga ejecutando
+        }
+
+        // Continuamos la rotación de la manecilla
         hand.style.transition = `transform ${duration}ms linear`;
         hand.style.transform = `rotate(${angle}deg)`;
 
@@ -94,10 +156,14 @@ function startClock() {
         hand.style.backgroundColor = colors[colorIndex];
 
         // Si quieres cambiar el color del reloj también
+        clock.style.backgroundColor = colors[colorIndex];
     }
 
-    const clockInterval = setInterval(update, duration);
+    // Iniciamos el ciclo de la animación
+    clockInterval = setInterval(update, duration);
+    
 }
+
 
 // Al hacer clic en "Jugar", guardamos los nombres de los jugadores
 button.addEventListener('click', function () {
@@ -112,30 +178,125 @@ button.addEventListener('click', function () {
     h2Player3.innerHTML = player3Name;
     h2Player4.innerHTML = player4Name;
 
-    startClock();
+    let countdown = 3;
+    let timerInterval;
+
+    Swal.fire({
+        title: "TYPE WORD",
+        html: `
+          <video width="300px" height="200px" autoplay loop muted>
+            <source src="assets/img/cargador.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+          </video>
+          <br>
+          <p><b>El juego comienza en <span id="countdown">${countdown}</span></b></p>
+        `,
+        timer: 3000,
+        showConfirmButton: false,
+        didOpen: () => {
+          const countdownElement = document.getElementById("countdown");
+          timerInterval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+      
+            if (countdown <= 0) {
+              clearInterval(timerInterval);
+              Swal.close();
+            }
+          }, 1000);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        }
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("El alerta se cerró automáticamente");
+        }
+      });
+
+      
+        startClock();  // Llama a la función startClock después de 3 segundos
+      
 });
 
-// Al hacer clic en "Recargar", reiniciamos el juego pero conservamos los nombres
+
+let clockInterval; // Definir clockInterval globalmente para que se pueda detener o reiniciar cuando sea necesario
+
 btnReload.addEventListener('click', () => {
-    // Reiniciamos el ángulo y la acción
     angle = 0;
-    action = '';
-    numberOfWords1.innerText="";
-    numberOfWords2.innerText="";
-    numberOfWords3.innerText="";
-    numberOfWords4.innerText="";
+    // Reiniciamos el ángulo y la acción
+    const hand = document.getElementById("hand");
+
+    // Eliminamos cualquier animación anterior y aseguramos que la manecilla vuelve a la posición inicial
+    hand.style.animation = 'none'; // Eliminar la animación anterior
+    hand.style.transform = `rotate(0deg)`; // Asegurarnos de que la manecilla empieza en la posición inicial
+
+    // Hacemos un "reflow" para reiniciar la animación
+    hand.offsetHeight; // Esto provoca el reflow
+
+    // Establecemos nuevamente la animación
+    hand.style.animation = 'rotate 360s linear infinite'; // Continuar la animación (con "infinite" para que siga girando)
+
+    // Establecemos el color de la manecilla y el reloj en la posición inicial
+    const colorIndex = Math.floor(angle / 90);
+    hand.style.backgroundColor = colors[colorIndex];
+
+    // Reiniciar el ángulo
+   
+
+    // Limpiar los contadores
+    numberOfWords1.innerText = "";
+    numberOfWords2.innerText = "";
+    numberOfWords3.innerText = "";
+    numberOfWords4.innerText = "";
+
     // Asignamos nuevamente los nombres a los elementos de la interfaz
     h2Player1.innerHTML = player1Name;
     h2Player2.innerHTML = player2Name;
     h2Player3.innerHTML = player3Name;
     h2Player4.innerHTML = player4Name;
 
-    // Reiniciar la animación
-    const hand = document.getElementById("hand");
-    hand.style.animation = 'none'; // Eliminar la animación
-    hand.offsetHeight; // Forzar la reflow del DOM
-    hand.style.animation = `rotate ${duration}ms linear forwards`; // Volver a aplicar la animación
+    let countdown = 3;
+    let timerInterval;
+
+    Swal.fire({
+        title: "TYPE WORD",
+        html: `
+          <video width="300px" height="200px" autoplay loop muted>
+            <source src="assets/img/cargador.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+          </video>
+          <br>
+          <p><b>El juego comienza en <span id="countdown">${countdown}</span></b></p>
+        `,
+        timer: 3000,
+        showConfirmButton: false,
+        didOpen: () => {
+          const countdownElement = document.getElementById("countdown");
+          timerInterval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+      
+            if (countdown <= 0) {
+              clearInterval(timerInterval);
+              Swal.close();
+            }
+          }, 1000);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        }
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("El alerta se cerró automáticamente");
+        }
+      });
 
     // Reiniciar el reloj
-    startClock();
+    clearInterval(clockInterval); // Detenemos cualquier intervalo anterior
+
+    // Establecer el ciclo para el reloj, comenzando la animación desde el ángulo 0
+    startClock(); // Llamamos a startClock para continuar el ciclo de la manecilla
+    
 });
+

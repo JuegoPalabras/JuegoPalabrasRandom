@@ -7,8 +7,18 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <div id="blur">
+        <div id="containerPause">
+            <img src="/assets/img/x.png" alt="Boton para cerrar el menu de pausa" id="btn-closePause">
+            <h2>PAUSA</h2>
+            <button id="restart-btn">Jugar de nuevo</button>
+            <button id="exit-btn">Salir</button>
+    
+        </div>
+    </div>
+    
     <div id="optionsMenu">
-        <h1 id="optionsMenu-title">TYPE WORDS</h1>
+        <h1 id="optionsMenu-title2" >TYPE WORDS</h1>
         <h2 id="optionsMenu-text">Seleccione el numero de jugadores</h2>
             <div id="optionsMenuButtons">
             <button id="optionsMenu-opt1">1 Jugador</button>
@@ -18,11 +28,11 @@
             </div>
     </div>
     
-        <button id="Exit">⬅</button>
+        
        
     <div id="playersNames">
-       
-             <h1>TYPE WORDS</h1>
+        <button id="Exit">⬅</button>
+             <h1 id="optionsMenu-title">TYPE WORDS</h1>
         
    
         <div>
@@ -47,10 +57,13 @@
     </div>
     <div class="game" id="game">
     <div class="container">
+        <div>
+            <img src="/assets/img/boton-de-pausa (1).png" alt="boton para pausar el juego" id="BtnPause">
+        </div>
         <div class="letra" id="letra">
             <h2 class="letter" id="letter"></h2>
         </div>
-        <div class="clock">
+        <div class="clock" >
             <div class="hand" id="hand"></div>
             <div class="player top">⬆</div>
             <div class="player right">➡</div>
@@ -64,40 +77,37 @@
     </div>
 
     <div class="input-container">
-        <input type="text" id="word-input" placeholder="Ingresa una palabra">
+        <input type="text" id="word-input" placeholder="Ingresa una palabra" >
         <div class="buttons">
             <button id="accept-btn">Aceptar</button>
-            <button id="restart-btn">Jugar de nuevo</button>
         </div>
     </div>
 
     <div class="words-container">
         <div class="words-box1" id="words-box1">
             <h3 id="nmPlayer1">.</h3>
-            <div class="word-list" id="words-player1">
-
-            </div>
             <h3 >Cantidad de palabras: <span id="numberOfWords1"></span></h3>
+            <div class="word-list" id="words-player1"></div>
         </div>
         <div class="words-box2" id="words-box2">
             <h3 id="nmPlayer2">.</h3>
-            <div class="word-list" id="words-player2"></div>
+        
             <h3 >Cantidad de palabras: <span id="numberOfWords2"></span></h3>
-
+            <div class="word-list" id="words-player2"></div>
 
         </div>
         <div class="words-box3" id="words-box3">
             <h3 id="nmPlayer3">.</h3>
-            <div class="word-list" id="words-player3"></div>
+        
             <h3 >Cantidad de palabras: <span id="numberOfWords3"></span></h3>
-
+            <div class="word-list" id="words-player3"></div>
 
         </div>
         <div class="words-box4" id="words-box4">
             <h3 id="nmPlayer4">.</h3>
-            <div class="word-list" id="words-player4"></div>
+          
             <h3 >Cantidad de palabras: <span id="numberOfWords4"></span></h3>
-
+            <div class="word-list" id="words-player4"></div>
 
         </div>
     </div>

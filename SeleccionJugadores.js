@@ -1,5 +1,6 @@
 /*Declaracion y llamado de variables por medio de ID */
 
+import { angle } from "/NombreJugadores.js";
 
 
 const btn1player = document.getElementById('optionsMenu-opt1');
@@ -25,7 +26,7 @@ const containerplayer1=document.getElementById('words-box1')
 const containerplayer2=document.getElementById('words-box2')
 const containerplayer3=document.getElementById('words-box3')
 const containerplayer4=document.getElementById('words-box4')
-let action=''
+export let action=''
 
 /* Aqui se declaran las acciones de los botones para que cuando sean presionados llenen la variable action con una cadena de texto en especifico */
 
@@ -147,7 +148,14 @@ ExitNamePlayers.addEventListener('click', ()=>{
     player2.style.display='none';
     player3.style.display='none';
     player4.style.display='none';
+    containerplayer1.style.display='none';
+    containerplayer2.style.display='none';
+    containerplayer3.style.display='none';
+    containerplayer4.style.display='none';
+
 })
+
+
 
 
 
