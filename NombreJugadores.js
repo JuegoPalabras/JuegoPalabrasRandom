@@ -184,7 +184,7 @@ button.addEventListener('click', function () {
     Swal.fire({
         title: "TYPE WORD",
         html: `
-          <video width="300px" height="200px" autoplay loop muted>
+          <video width="300px" height="300px" autoplay loop muted>
             <source src="assets/img/cargador.mp4" type="video/mp4">
             Tu navegador no soporta el video.
           </video>

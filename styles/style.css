@@ -370,7 +370,7 @@ cursor: pointer;
 
 #accept-btn {
     background: linear-gradient(to bottom, #4CAF50, #388E3C);
-color: white;
+    color: white;
 }
 
 #accept-btn:hover{
